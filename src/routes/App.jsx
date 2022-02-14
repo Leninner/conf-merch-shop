@@ -18,7 +18,7 @@ export const App = () => {
             <Route path='/checkout' element={<Checkout />} />
             <Route path='/checkout/information' element={<Information />} />
             <Route path='/checkout/payment' element={<Payment />} />
-            <Route path='/checkout/sucess' element={<Sucess />} />
+            <Route path='/checkout/success' element={<Sucess />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </Layout>
