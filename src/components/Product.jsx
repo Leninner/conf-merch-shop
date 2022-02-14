@@ -1,4 +1,4 @@
-export const Product = ({ image, title, price, description }) => {
+export const Product = ({ image, title, price, description, handleAddToCart }) => {
   return (
     <div className='no-underline shadow-[8px_14px_38px_rgba(39,44,49,0.06),_1px_3px_8px_rgba(39,44,49,0.03)] rounded-[5px] mb-5 relative'>
       <img src={image} alt={title} className='w-full h-[200px] rounded-tl rounded-tr object-contain' />
@@ -11,7 +11,8 @@ export const Product = ({ image, title, price, description }) => {
       </div>
       <button
         type='button'
-        className='bg-[linear-gradient(to_bottom,_#63b8ee_5%,_#468ccf_100%)] w-full p-[10px] rounded-bl rounded-br border-0 outline-none text-[14px] font-light hover:bg-[rgba(39,_44,_49,_0.06)] '>
+        className='bg-[linear-gradient(to_bottom,_#63b8ee_5%,_#468ccf_100%)] w-full p-[10px] rounded-bl rounded-br border-0 outline-none text-[14px] font-light hover:bg-[rgba(39,_44,_49,_0.06)] '
+        onClick={handleAddToCart}>
         Comprar
       </button>
     </div>

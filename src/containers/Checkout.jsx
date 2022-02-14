@@ -1,25 +1,43 @@
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AppContext } from '../context/AppContext';
 
 export const Checkout = () => {
+  const { state, removeFromCart } = useContext(AppContext);
+
+  const { cart } = state;
+
+  const handleRemoveItem = (index) => removeFromCart(index);
+
+  const handleSum = () => cart.reduce((acc, curr) => acc + curr.price, 0);
+
   return (
     <section className='grid grid-cols-[3fr_1fr] gap-8 pb-[4em] gap-y-[40rem]'>
       <div className='Checkout-content'>
-        <h3 className='mb-5 font-semibold'>Lista de Pedidos:</h3>
+        {cart.length
+          ? cart.map(({ title, price }, index) => (
+              <>
+                <h3 className='mb-5 font-semibold'>Lista de Pedidos:</h3>
+                <div className='flex items-center justify-between mt-[10px]' key={index}>
+                  <div className='flex items-center justify-between w-full border-b border-white'>
+                    <h4 className='m-0 font-semibold'>{title}</h4>
+                    <span>$ {price}</span>
+                  </div>
 
-        <div className='flex items-center justify-between mt-[10px]'>
-          <div className='flex items-center justify-between w-full border-b border-white'>
-            <h4 className='m-0 font-semibold'>ITEM name</h4>
-            <span>$10</span>
-          </div>
-
-          <button type='button' className='bg-transparent border-none outline-none'>
-            <i title='eliminar' className='ml-3 text-[rgba(0,_0,_0,_0.4)] fas fa-trash-alt' />
-          </button>
-        </div>
+                  <button
+                    type='button'
+                    className='bg-transparent border-none outline-none'
+                    onClick={() => handleRemoveItem(index)}>
+                    <i title='eliminar' className='ml-3 text-[rgba(0,_0,_0,_0.4)] fas fa-trash-alt' />
+                  </button>
+                </div>
+              </>
+            ))
+          : 'No hay pedidos'}
       </div>
 
       <div className='Checkout-sidebar'>
-        <h3 className='mb-5 font-semibold'>Precio Total: $10</h3>
+        <h3 className='mb-5 font-semibold'>{`Precio total: $ ${handleSum()}`}</h3>
         <Link to='/checkout/information'>
           <button
             type='button'
