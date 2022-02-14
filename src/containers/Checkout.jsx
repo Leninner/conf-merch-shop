@@ -16,9 +16,9 @@ export const Checkout = () => {
       <div className='Checkout-content'>
         {cart.length
           ? cart.map(({ title, price }, index) => (
-              <>
+              <div key={index}>
                 <h3 className='mb-5 font-semibold'>Lista de Pedidos:</h3>
-                <div className='flex items-center justify-between mt-[10px]' key={index}>
+                <div className='flex items-center justify-between mt-[10px]'>
                   <div className='flex items-center justify-between w-full border-b border-white'>
                     <h4 className='m-0 font-semibold'>{title}</h4>
                     <span>$ {price}</span>
@@ -31,7 +31,7 @@ export const Checkout = () => {
                     <i title='eliminar' className='ml-3 text-[rgba(0,_0,_0,_0.4)] fas fa-trash-alt' />
                   </button>
                 </div>
-              </>
+              </div>
             ))
           : 'No hay pedidos'}
       </div>
