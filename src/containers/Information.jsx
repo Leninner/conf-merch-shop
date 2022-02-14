@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export const Information = () => {
   return (
     <div className='Information grid grid-cols-[3fr_1fr] gap-8 gap-y-[1.5em] mb-[4em]'>
@@ -20,7 +22,9 @@ export const Information = () => {
         </div>
         <div className='flex items-center justify-between'>
           <div className='mt-[10px]'>Regresar</div>
-          <div className='Information-next'>pagar</div>
+          <Link to='/checkout/payment'>
+            <div className='Information-next'>pagar</div>
+          </Link>
         </div>
       </div>
       <div className='mt-[10px]'>
