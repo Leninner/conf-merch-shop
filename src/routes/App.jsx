@@ -4,7 +4,7 @@ import { Home } from '../containers/Home';
 import { Checkout } from '../containers/Checkout';
 import { Information } from '../containers/Information';
 import { Payment } from '../containers/Payment';
-import { Sucess } from '../containers/Sucess';
+import { Success } from '../containers/Success';
 import { NotFound } from '../containers/NotFound';
 import { AppContextProvider } from '../context/AppContext';
 
@@ -18,7 +18,7 @@ export const App = () => {
             <Route path='/checkout' element={<Checkout />} />
             <Route path='/checkout/information' element={<Information />} />
             <Route path='/checkout/payment' element={<Payment />} />
-            <Route path='/checkout/success' element={<Sucess />} />
+            <Route path='/checkout/success' element={<Success />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </Layout>

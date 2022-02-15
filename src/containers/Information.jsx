@@ -28,7 +28,7 @@ export const Information = () => {
     };
 
     addToBuyer(buyer);
-    navigate('/checkout/payment');
+    setTimeout(() => navigate('/checkout/payment'), 1500);
   };
 
   return (

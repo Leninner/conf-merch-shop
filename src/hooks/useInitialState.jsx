@@ -24,7 +24,7 @@ export const useInitialState = () => {
   const addToBuyer = (payload) => {
     setState({
       ...state,
-      buyer: [payload, ...state.buyer],
+      buyer: payload,
     });
   };
 
